@@ -1,0 +1,53 @@
+﻿// ActiveXCPP3.idl: источник библиотеки типов для проекта элементов управления ActiveX.
+
+// Этот файл будет обработан компилятором MIDL для
+// создание библиотеки типов (ActiveXCPP3.tlb), которая станет ресурсом в
+// ActiveXCPP3.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+#define DISPID_TEST_METHOD (1025317)
+[ uuid(8971dbf5-18f3-433e-885a-a07c15885312), version(1.0),
+  control ]
+library ActiveXCPP3Lib
+{
+	importlib(STDOLE_TLB);
+
+	//  Первичный интерфейс диспетчеризации для CActiveXCPP3Ctrl
+	[ 
+		uuid(c8bdc564-0a0e-4d2b-accc-e73d2d910656)
+	]
+	dispinterface _DActiveXCPP3
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+
+			[id(DISPID_TEST_METHOD)] double Ellipse(double param1, double param2);
+	};
+
+	//  Интерфейс диспетчеризации событий для CActiveXCPP3Ctrl
+
+	[ 
+		uuid(6b497838-a8b4-4940-9e15-2c23e3852967)
+	]
+	dispinterface _DActiveXCPP3Events
+	{
+		properties:
+			//  Интерфейс событий не имеет свойств
+
+		methods:
+	};
+
+	//  Сведения о классе CActiveXCPP3Ctrl
+	[
+		uuid(e8fad06c-d6bd-4e2a-b9dc-ea11f58f8aaa)
+	]
+	coclass ActiveXCPP3
+	{
+		[default] dispinterface _DActiveXCPP3;
+		[default, source] dispinterface _DActiveXCPP3Events;
+	};
+
+};
